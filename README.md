@@ -75,16 +75,20 @@ Reusable component utility classes in `globals.css`:
 
 All Figma image exports are bundled in `public/images/`:
 
-| File                   | Used in            |
-| ---------------------- | ------------------ |
-| `hero.png`             | `Hero.jsx`         |
-| `dashboard-aml.png`    | `CB7Section.jsx`   |
-| `dashboard-ckyc.png`   | `CB7Section.jsx`   |
-| `phone-home.png`       | `DigitalBanking.jsx` |
-| `phone-chart.png`      | `DigitalBanking.jsx` |
-| `phone-profile.png`    | `DigitalBanking.jsx` |
+| File                   | Used in                                      | Description |
+| ---------------------- | -------------------------------------------- | ----------- |
+| `womenwithphone.png`   | `Hero.jsx`                                   | Main hero section illustration (user with floating dashboard UI) |
+| `dashboardONe.png`     | `CB7Section.jsx`                             | AML Dashboard preview |
+| `DashboardTwo.png`     | `CB7Section.jsx`                             | CKYC Dashboard preview |
+| `phone1.png`           | `DigitalBanking.jsx`                         | Phone mockup 1 (Home activity screen) |
+| `phone2.png`           | `DigitalBanking.jsx`                         | Phone mockup 2 (Monthly chart screen) |
+| `phone3.png`           | `DigitalBanking.jsx`                         | Phone mockup 3 (Settings & Profile screen) |
+| `CB7.png`              | `CB7Section.jsx`, `CB7CTA.jsx`               | Unified CB7 watermark logo graphic |
+| `leftsidevector.png`   | `DigitalBanking.jsx`                         | Decorative clover outline background vector |
+| `7.png`                | `DigitalBanking.jsx`                         | Decorative giant "7" background vector |
+| `beneathn7.png`        | `DigitalBanking.jsx`                         | Decorative giant "N7" background vector |
 
-All images render through `next/image` for automatic optimization (lazy-loading, WebP, responsive sizes). The hero image has `priority` set since it's above the fold.
+All images render through standard `next/image` tags or optimized HTML tags for automatic optimization (lazy-loading, responsive sizes).
 
 ### Still placeholder (text-only):
 - **Trusted-By logos** in `TrustedBy.jsx` — currently a small gray square + brand name. Drop brand SVGs into `public/images/logos/` and swap as needed.
@@ -120,8 +124,34 @@ vercel
 
 No environment variables are needed.
 
+## 🛠️ Design Refinements, Bug Fixes & Enhancements
+
+To achieve a production-grade standard and perfectly match the visual mockups, the following refinements have been implemented in the codebase:
+
+1. **Pixel-Perfect 3-Phone Grid Alignment** (`DigitalBanking.jsx`):
+   - Corrected the vertical layout in Row 2 (the middle section).
+   - Placed the *"No legacy IT systems"* text inside the middle column (`lg:col-start-2`) and Phone 2 inside the right column (`lg:col-start-3`). This matches the mockup's center-right alignment and allows the faint blue clover outline vector on the left column to display unobstructed.
+
+2. **Smart Anchor Scrolling & Navigation** (`Footer.jsx`):
+   - Mapped all main footer navigation links (*"Core Banking CB7"*, *"Digital Banking N7"*, *"Solutions"*, *"Insights"*, *"Contact"*, and *"About Us"*) to their exact HTML section IDs across the landing page.
+   - Designed a safe navigation event handler using `scrollIntoView({ behavior: 'smooth' })`.
+   - Intercepted click events to prevent default `#` redirects, **completely avoiding annoying page-top jumps** when clicking unmapped or placeholder items (a major user-experience improvement).
+
+3. **Unified Brand Watermarks** (`CB7Section.jsx` & `CB7CTA.jsx`):
+   - Replaced raw text-stroke CSS placeholders with the unified transparent brand graphic asset `/images/CB7.png`.
+   - In `CB7CTA.jsx` (the Dark CTA card), the graphic is absolute-positioned and perfectly scaled (`h-[120%] object-right`), and clipped strictly **inside** the card boundaries using `overflow-hidden` to match the exact figma outline spec.
+   - In `CB7Section.jsx` (Core Banking dashboard), the asset is scaled horizontally and centered at a subtle opacity (`opacity-[0.65]`) to create a unified design language.
+
+4. **Dynamic N7 Browser Tab Icon (Favicon)** (`src/app/icon.js`):
+   - Engineered a dynamic Next.js API-based favicon that generates a PNG tab icon.
+   - Features a custom linear gradient background (`#00C2FF` to `#0A2BFA`) with the bold white **"N7"** logo centered inside it, replacing default browser icons.
+
+5. **Optimized Spacing Rhythm** (`TrustedBy.jsx`):
+   - Adjusted the layout offsets on the brand logos container from `pb-16 md:pb-24` to `pt-12 md:pt-20 pb-4 md:pb-8`.
+   - Shunted the TrustedBy strip further down (away from Hero content) and pulled it closer to the Solutions grid to establish a balanced vertical layout flow.
+
 ## 📝 Notes
 
-- All interactive elements (buttons, carousel arrows, mobile menu) are functional. The href targets are `#` placeholders — wire them up to real routes when content is finalized.
-- The marquee pauses on hover (see `.marquee-track:hover` in `globals.css`).
-- Headlines, copy, and microcopy are transcribed verbatim from the Figma screenshots.
+- All interactive controls (e.g. navigation, carousel, mobile drawer) are active. The footer anchors are mapped to real section IDs.
+- The infinite text marquee pauses automatically on mouse hover (see `.marquee-track:hover` in `globals.css`).
+- Typography utilizes responsive `clamp()` to scale header sizes smoothly across desktop, tablet, and mobile views.
