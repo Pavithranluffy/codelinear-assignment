@@ -7,7 +7,7 @@ import { CheckCircle } from "@/components/ui/Icons";
 
 export default function DigitalBanking() {
   return (
-    <section className="relative bg-gradient-to-b from-[#EEF4FB] via-[#E8F0F9] to-[#EEF4FB] text-ink-900 py-20 md:py-28 overflow-hidden">
+    <section id="digital-banking" className="relative bg-gradient-to-b from-[#EEF4FB] via-[#E8F0F9] to-[#EEF4FB] text-ink-900 py-20 md:py-28 overflow-hidden">
       {/* decorative concentric line patterns */}
       <DecorLines />
 
@@ -101,14 +101,14 @@ export default function DigitalBanking() {
           </motion.div>
         </div>
 
-        {/* Row 2 — bullets (left) + phone (chart, center) */}
+        {/* Row 2 — bullets (center) + phone (chart, right) */}
         <div className="grid lg:grid-cols-3 gap-10 lg:gap-14 items-center mb-24 md:mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-start-1"
+            className="lg:col-start-2"
           >
             <h3 className="text-lg font-semibold mb-3">No legacy IT systems</h3>
             <p className="text-sm text-slate-500 leading-relaxed mb-6">
@@ -133,7 +133,7 @@ export default function DigitalBanking() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-start-2 flex justify-center"
+            className="lg:col-start-3 flex justify-center"
           >
             <Image
               src="/images/phone2.png"

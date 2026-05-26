@@ -13,7 +13,7 @@ const logos = [
 
 export default function TrustedBy() {
   return (
-    <section className="pb-16 md:pb-24">
+    <section className="pt-12 md:pt-20 pb-4 md:pb-8">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0 }}

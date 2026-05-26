@@ -28,7 +28,7 @@ const articles = [
 
 export default function Insights() {
   return (
-    <section className="py-20 md:py-28">
+    <section id="insights" className="py-20 md:py-28">
       <div className="container-wide">
         <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
           {/* Left heading */}

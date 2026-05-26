@@ -50,7 +50,7 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section className="py-20 md:py-28 relative">
+    <section id="solutions" className="py-20 md:py-28 relative">
       <div className="container-wide">
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Left column — sticky heading */}

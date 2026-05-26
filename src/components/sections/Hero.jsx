@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
+    <section id="about-us" className="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
       {/* radial glow behind the right-side image */}
       <div className="absolute inset-0 bg-hero-glow opacity-80 pointer-events-none" />
       {/* subtle grid */}

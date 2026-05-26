@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function FinalCTA() {
   return (
-    <section className="pb-20 md:pb-28">
+    <section id="contact" className="pb-20 md:pb-28">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

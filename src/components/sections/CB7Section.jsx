@@ -19,7 +19,7 @@ const features = [
 
 export default function CB7Section() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section id="cb7-section" className="relative py-24 md:py-32 overflow-hidden">
       {/* Giant "CB7" watermark behind */}
       <div
         aria-hidden

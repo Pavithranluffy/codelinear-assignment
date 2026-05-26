@@ -16,14 +16,13 @@ export default function CB7CTA() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute inset-0 flex items-center justify-end pr-8 select-none pointer-events-none overflow-hidden"
+            className="absolute inset-y-0 right-0 w-full md:w-3/4 flex items-center justify-end select-none pointer-events-none z-0 opacity-80"
           >
-            <span
-              className="text-[24vw] md:text-[18rem] font-bold leading-none text-transparent"
-              style={{ WebkitTextStroke: '1px rgba(45,127,249,0.18)' }}
-            >
-              CB7
-            </span>
+            <img
+              src="/images/CB7.png"
+              alt=""
+              className="h-[120%] w-auto object-contain object-right"
+            />
           </div>
 
           <div className="relative grid md:grid-cols-2 gap-10 items-center">

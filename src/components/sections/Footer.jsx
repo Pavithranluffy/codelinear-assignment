@@ -50,6 +50,30 @@ const linkGroups = [
 ];
 
 export default function Footer() {
+  const handleLinkClick = (e, item) => {
+    const mappings = {
+      "Core Banking CB7": "cb7-section",
+      "Digital Banking N7": "digital-banking",
+      "Solutions": "solutions",
+      "Insights": "insights",
+      "Contact": "contact",
+      "About Us": "about-us",
+    };
+
+    const targetId = mappings[item];
+    if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
+    
+    // Prevent default so that we do not jump/redirect to the top of the page
+    e.preventDefault();
+  };
+
   return (
     <footer className="relative border-t border-white/[0.06]" style={{ background: '#030A14' }}>
       {/* Main footer content */}
@@ -107,6 +131,7 @@ export default function Footer() {
                       <li key={item}>
                         <a
                           href="#"
+                          onClick={(e) => handleLinkClick(e, item)}
                           className="group inline-flex items-center gap-2 text-xs hover:text-white transition-colors"
                           style={{ color: 'rgba(126,184,216,0.6)' }}
                         >
