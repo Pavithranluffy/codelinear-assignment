@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 4, 9, 16;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  overflow-x: hidden;
+}
+
+/* Custom underline animation for "LEARN MORE" links */
+@layer components {
+  .link-underline {
+    @apply relative inline-flex items-center gap-2 text-link font-mono text-xs tracking-btn uppercase;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-full bg-link transition-transform duration-300 origin-left;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-110;
+  }
+
+  /* Primary blue gradient button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-7 py-3.5 rounded-md
+           bg-btn-gradient text-white font-mono text-xs tracking-btn uppercase
+           transition-all duration-300 hover:shadow-btn-glow hover:scale-[1.02]
+           active:scale-[0.99];
+  }
+
+  /* Outline / ghost button */
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center px-7 py-3.5 rounded-md
+           border border-white/20 text-white font-mono text-xs tracking-btn uppercase
+           transition-all duration-300 hover:bg-white/5 hover:border-white/40
+           active:scale-[0.99];
+  }
+
+  .btn-ghost-dark {
+    @apply relative inline-flex items-center justify-center px-7 py-3.5 rounded-md
+           border border-slate-300 text-slate-900 font-mono text-xs tracking-btn uppercase
+           transition-all duration-300 hover:bg-slate-100
+           active:scale-[0.99];
+  }
+
+  .container-narrow {
+    @apply max-w-[1200px] mx-auto px-6 md:px-10;
+  }
+  .container-wide {
+    @apply max-w-[1280px] mx-auto px-6 md:px-10;
+  }
+
+  /* Card with subtle gradient border on dark */
+  .card-dark {
+    @apply relative rounded-2xl bg-ink-800/60 border border-white/[0.06]
+           backdrop-blur-sm;
+  }
+}
+
+/* Custom scrollbar — minimal */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #02060A; }
+::-webkit-scrollbar-thumb { background: #1a2433; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #243246; }
+
+/* Pause marquee on hover */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
