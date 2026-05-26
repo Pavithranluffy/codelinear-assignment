@@ -23,12 +23,13 @@ export default function CB7Section() {
       {/* Giant "CB7" watermark behind */}
       <div
         aria-hidden
-        className="absolute top-10 left-0 right-0 text-center select-none pointer-events-none"
+        className="absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none z-0 w-[90%] max-w-[1100px] flex justify-center opacity-[0.65]"
       >
-        <span className="text-[18vw] md:text-[15vw] font-bold tracking-tighter text-transparent"
-              style={{ WebkitTextStroke: '1px rgba(45,127,249,0.12)' }}>
-          CB7
-        </span>
+        <img
+          src="/images/CB7.png"
+          alt=""
+          className="w-full h-auto object-contain"
+        />
       </div>
 
       <div className="container-wide relative">
